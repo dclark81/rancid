@@ -1,0 +1,353 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+expand	@o@;
+
+
+1.2
+date	2016.09.07.14.27.16;	author rancid;	state Exp;
+branches;
+next	1.1;
+commitid	10057D023C4089C7169;
+
+1.1
+date	2016.09.07.13.42.54;	author rancid;	state Exp;
+branches;
+next	;
+commitid	10057D0195E06E8145A;
+
+
+desc
+@@
+
+
+1.2
+log
+@updates
+@
+text
+@;RANCID-CONTENT-TYPE: hp
+;
+;Chassis type: J4904A
+;Serial Number: SG805SK3TA
+;
+;Memory: 30M
+;
+;Image: stamp:    /sw/code/build/mako
+;Image: Apr  9 2014 12:14:03
+;Image: I.10.105
+;Image: 1710
+;Image: Boot Image:     Primary
+;Image: ROM I.08.07
+;
+;Flash: Image           Size(Bytes)   Date   Version
+;Flash: -----           ----------  -------- -------
+;Flash: Primary Image   : 3434519   04/09/14 I.10.105
+;Flash: Secondary Image : 3425908   09/24/13 I.10.103
+;Flash: Boot Rom Version: I.08.07
+;Flash: Current Boot    : Primary
+;
+;
+; Stacking Status
+;  Stack State           : Candidate
+;  Transmission Interval : 60          
+;  Auto Join             : Yes         
+;
+;transceivers
+;Transceiver: 
+; Port # |   Type    | Prod # | Serial #         | Part # 
+; -------+-----------+--------+------------------+----------
+;
+;
+;
+;Running config file:
+; J4904A Configuration Editor; Created on release #I.10.105
+;
+hostname "mch1-gesw1" 
+snmp-server contact "LiveLink InfraOps" 
+snmp-server location "McCormack House, Rm 22, R1U03" 
+max-vlans 32 
+time daylight-time-rule Western-Europe 
+no telnet-server 
+interface 1 
+   no lacp
+exit
+interface 2 
+   no lacp
+exit
+interface 3 
+   no lacp
+exit
+interface 4 
+   no lacp
+exit
+interface 5 
+   disable
+   no lacp
+exit
+interface 6 
+   disable
+   no lacp
+exit
+interface 7 
+   disable
+   no lacp
+exit
+interface 8 
+   disable
+   no lacp
+exit
+interface 9 
+   no lacp
+exit
+interface 10 
+   no lacp
+exit
+interface 11 
+   no lacp
+exit
+interface 12 
+   no lacp
+exit
+interface 13 
+   no lacp
+exit
+interface 14 
+   no lacp
+exit
+interface 15 
+   no lacp
+exit
+interface 16 
+   no lacp
+exit
+interface 17 
+   no lacp
+exit
+interface 18 
+   no lacp
+exit
+interface 19 
+   no lacp
+exit
+interface 20 
+   no lacp
+exit
+interface 21 
+   no lacp
+exit
+interface 22 
+   no lacp
+exit
+interface 23 
+   no lacp
+exit
+interface 24 
+   no lacp
+exit
+interface 25 
+   no lacp
+exit
+interface 26 
+   no lacp
+exit
+interface 27 
+   no lacp
+exit
+interface 28 
+   no lacp
+exit
+interface 29 
+   no lacp
+exit
+interface 30 
+   no lacp
+exit
+interface 31 
+   no lacp
+exit
+interface 32 
+   no lacp
+exit
+interface 33 
+   no lacp
+exit
+interface 34 
+   no lacp
+exit
+interface 35 
+   no lacp
+exit
+interface 36 
+   no lacp
+exit
+interface 37 
+   no lacp
+exit
+interface 38 
+   no lacp
+exit
+interface 39 
+   no lacp
+exit
+interface 40 
+   no lacp
+exit
+interface 41 
+   no lacp
+exit
+interface 42 
+   no lacp
+exit
+interface 43 
+   no lacp
+exit
+interface 44 
+   no lacp
+exit
+interface 45 
+   no lacp
+exit
+interface 46 
+   no lacp
+exit
+interface 47 
+   no lacp
+exit
+interface 48 
+   no lacp
+exit
+trunk 1-2 Trk1 LACP 
+trunk 3-8 Trk2 LACP 
+trunk 9-12 Trk3 LACP 
+trunk 13-16 Trk4 LACP 
+trunk 17-20 Trk5 LACP 
+trunk 21-24 Trk6 LACP 
+trunk 25-28 Trk7 LACP 
+trunk 29-32 Trk8 LACP 
+ip default-gateway 192.168.191.254 
+sntp server 192.168.191.254 
+timesync sntp 
+sntp unicast 
+snmp-server community "AM3ZXVWHLJX63" Unrestricted 
+snmp-server community "LIVELINK" Operator 
+vlan 1 
+   name "DEFAULT_VLAN" 
+   forbid 33-48,Trk1-Trk8 
+   no ip address 
+   no untagged 33-48,Trk1-Trk8 
+   exit 
+vlan 191 
+   name "NetworkMgmt" 
+   ip address 192.168.191.1 255.255.255.0 
+   tagged 33,35-37,45,47-48,Trk1-Trk8 
+   exit 
+vlan 132 
+   name "InfraOps" 
+   untagged 39,41 
+   tagged 33,45,47-48,Trk1-Trk8 
+   exit 
+vlan 128 
+   name "LLStaff" 
+   untagged 34,38,40,43-44 
+   tagged 33,37,45,47-48,Trk1-Trk8 
+   exit 
+vlan 136 
+   name "LLWireless" 
+   tagged 45,47-48,Trk1-Trk8 
+   exit 
+vlan 140 
+   name "LLBuild" 
+   tagged 45,47-48,Trk1-Trk8 
+   exit 
+vlan 144 
+   name "LLKiosk1" 
+   tagged 45,47-48,Trk1-Trk8 
+   exit 
+vlan 188 
+   name "LLVoip" 
+   tagged 33-34,37-41,43-45,47-48,Trk1-Trk8 
+   exit 
+vlan 189 
+   name "LLCCTV" 
+   tagged 33,35-36,45,47-48,Trk1-Trk8 
+   exit 
+vlan 190 
+   name "LLDoors" 
+   tagged 33,45,47-48,Trk1-Trk8 
+   exit 
+vlan 4 
+   name "Residential" 
+   tagged 45,47,Trk1-Trk8 
+   exit 
+vlan 127 
+   name "ADSL" 
+   untagged 36,42,46 
+   ip address 192.168.127.99 255.255.255.0 
+   tagged 37,45,48,Trk1-Trk8 
+   exit 
+vlan 148 
+   name "DevTeam" 
+   tagged 45,Trk1-Trk8 
+   exit 
+vlan 187 
+   name "BuildingMgmt" 
+   tagged 35,45 
+   exit 
+vlan 1252 
+   name "MCH-IPMI" 
+   tagged 37,Trk1-Trk8 
+   exit 
+vlan 1292 
+   name "mch-prod" 
+   tagged Trk1-Trk8 
+   exit 
+vlan 1202 
+   name "mch-hosts" 
+   tagged 37,Trk8 
+   exit 
+vlan 1203 
+   name "mch-zones" 
+   tagged 37,Trk8 
+   exit 
+primary-vlan 191 
+spanning-tree
+no spanning-tree 43 admin-edge-port
+no spanning-tree 44 admin-edge-port
+no spanning-tree Trk1 admin-edge-port
+spanning-tree Trk1 priority 4
+no spanning-tree Trk2 admin-edge-port
+spanning-tree Trk2 priority 4
+no spanning-tree Trk3 admin-edge-port
+spanning-tree Trk3 priority 4
+no spanning-tree Trk4 admin-edge-port
+spanning-tree Trk4 priority 4
+no spanning-tree Trk5 admin-edge-port
+spanning-tree Trk5 priority 4
+no spanning-tree Trk6 admin-edge-port
+spanning-tree Trk6 priority 4
+no spanning-tree Trk7 admin-edge-port
+spanning-tree Trk7 priority 4
+no spanning-tree Trk8 admin-edge-port
+spanning-tree Trk8 priority 4
+spanning-tree priority 4
+ip ssh
+ip ssh filetransfer
+no tftp client
+no tftp server
+;password manager <removed>
+;password operator <removed>
+;
+@
+
+
+1.1
+log
+@new router
+@
+text
+@d1 312
+@
+

@@ -1,0 +1,13 @@
+O57d01740|rancid|~/*0|mch||mch
+A57d01741|rancid|~/*0|mch|1.1|router.db
+O57d01742|rancid|~/rs|rs||rs
+A57d01743|rancid|~/rs|rs|1.1|router.db
+O57d01744|rancid|~/*0|txc1||txc1
+A57d01745|rancid|~/*0|txc1|1.1|router.db
+O57d01746|rancid|~/*0|txh1||txh1
+A57d01747|rancid|~/*0|txh1|1.1|router.db
+A57d0195e|rancid|~/*0|mch/configs|1.1|mch1-gesw1
+A57d0195f|rancid|~/*0|mch/configs|1.1|mch1-gesw2
+M57d0196b|rancid|~/*0|mch|1.2|router.db
+M57d023c4|rancid|~/mch|mch/configs|1.2|mch1-gesw1
+M57d023c4|rancid|~/mch|mch/configs|1.2|mch1-gesw2
