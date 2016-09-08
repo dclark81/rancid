@@ -39,6 +39,7 @@ hostname "mch1-gesw1"
 snmp-server contact "LiveLink InfraOps" 
 snmp-server location "McCormack House, Rm 22, R1U03" 
 max-vlans 32 
+time daylight-time-rule Western-Europe 
 no telnet-server 
 interface 1 
    no lacp
