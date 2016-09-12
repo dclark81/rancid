@@ -1,0 +1,241 @@
+;RANCID-CONTENT-TYPE: hp
+;
+;Chassis type: J4904A
+;Serial Number: SG742SK09H
+;
+;Memory: 30M
+;
+;Image: stamp:    /sw/code/build/mako
+;Image: Apr  9 2014 12:14:03
+;Image: I.10.105
+;Image: 1710
+;Image: Boot Image:     Primary
+;Image: ROM I.08.07
+;
+;Flash: Image           Size(Bytes)   Date   Version
+;Flash: -----           ----------  -------- -------
+;Flash: Primary Image   : 3434519   04/09/14 I.10.105
+;Flash: Secondary Image : 3425908   09/24/13 I.10.103
+;Flash: Boot Rom Version: I.08.07
+;Flash: Current Boot    : Primary
+;
+;
+; Stacking Status
+;  Stack State           : Candidate
+;  Transmission Interval : 60          
+;  Auto Join             : Yes         
+;
+;transceivers
+;Transceiver: 
+; Port # |   Type    | Prod # | Serial #         | Part # 
+; -------+-----------+--------+------------------+----------
+;
+;
+;
+;Running config file:
+; J4904A Configuration Editor; Created on release #I.10.105
+;
+hostname "mch1-gesw4" 
+snmp-server contact "LiveLink InfraOps" 
+snmp-server location "McCormack House, Rm 22, R1Uxx" 
+max-vlans 32 
+no telnet-server 
+interface 1 
+   no lacp
+exit
+interface 2 
+   no lacp
+exit
+interface 3 
+   no lacp
+exit
+interface 4 
+   no lacp
+exit
+interface 5 
+   no lacp
+exit
+interface 6 
+   no lacp
+exit
+interface 7 
+   no lacp
+exit
+interface 8 
+   no lacp
+exit
+interface 9 
+   no lacp
+exit
+interface 10 
+   no lacp
+exit
+interface 11 
+   no lacp
+exit
+interface 12 
+   no lacp
+exit
+interface 13 
+   no lacp
+exit
+interface 14 
+   no lacp
+exit
+interface 15 
+   no lacp
+exit
+interface 16 
+   no lacp
+exit
+interface 17 
+   no lacp
+exit
+interface 18 
+   no lacp
+exit
+interface 19 
+   no lacp
+exit
+interface 20 
+   no lacp
+exit
+interface 21 
+   no lacp
+exit
+interface 22 
+   no lacp
+exit
+interface 23 
+   no lacp
+exit
+interface 24 
+   no lacp
+exit
+interface 25 
+   no lacp
+exit
+interface 26 
+   no lacp
+exit
+interface 27 
+   no lacp
+exit
+interface 28 
+   no lacp
+exit
+interface 29 
+   no lacp
+exit
+interface 30 
+   no lacp
+exit
+interface 31 
+   no lacp
+exit
+interface 32 
+   no lacp
+exit
+interface 33 
+   no lacp
+exit
+interface 34 
+   no lacp
+exit
+interface 35 
+   no lacp
+exit
+interface 36 
+   no lacp
+exit
+interface 37 
+   no lacp
+exit
+interface 38 
+   no lacp
+exit
+interface 39 
+   no lacp
+exit
+interface 40 
+   no lacp
+exit
+interface 41 
+   no lacp
+exit
+interface 42 
+   no lacp
+exit
+interface 43 
+   no lacp
+exit
+interface 44 
+   no lacp
+exit
+interface 45 
+   no lacp
+exit
+interface 46 
+   no lacp
+exit
+interface 47 
+   no lacp
+exit
+interface 48 
+   no lacp
+exit
+trunk 45-48 Trk1 LACP 
+ip default-gateway 192.168.191.254 
+sntp server 192.168.191.254 
+timesync sntp 
+sntp unicast 
+snmp-server community "AM3ZXVWHLJX63" Unrestricted 
+snmp-server community "LIVELINK" Operator 
+vlan 1 
+   name "DEFAULT_VLAN" 
+   forbid 1-44,Trk1 
+   no ip address 
+   no untagged 1-44,Trk1 
+   exit 
+vlan 191 
+   name "NetworkMgmt" 
+   ip address 192.168.191.4 255.255.255.0 
+   tagged Trk1 
+   exit 
+vlan 128 
+   name "LLStaff" 
+   untagged 1-33,35,37,39,41,43 
+   tagged Trk1 
+   exit 
+vlan 132 
+   name "InfraOps" 
+   tagged Trk1 
+   exit 
+vlan 188 
+   name "LLVoip" 
+   tagged Trk1 
+   exit 
+vlan 189 
+   name "LLCCTV" 
+   tagged Trk1 
+   exit 
+vlan 190 
+   name "LLDoors" 
+   tagged Trk1 
+   exit 
+vlan 127 
+   name "ADSL" 
+   tagged Trk1 
+   exit 
+vlan 148 
+   name "DevTeam" 
+   untagged 34,36,38,40,42,44 
+   tagged Trk1 
+   exit 
+primary-vlan 191 
+spanning-tree
+spanning-tree Trk1 priority 4
+ip ssh
+;password manager <removed>
+;password operator <removed>
+;
