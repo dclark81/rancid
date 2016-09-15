@@ -1,0 +1,361 @@
+!RANCID-CONTENT-TYPE: EdgeSwitch
+!
+
+! # show version
+! 
+! Switch: 1
+! 
+! System Description............................. EdgeSwitch 24-Port 250W, 1.6.0.4900860, Linux 3.6.5-f4a26ed5, 1.0.0.4857129
+! Machine Type................................... EdgeSwitch 24-Port 250W
+! Machine Model.................................. ES-24-250W
+! Serial Number.................................. 44D9E7052266
+! Burned In MAC Address.......................... 44:D9:E7:05:22:66
+! Software Version............................... 1.6.0.4900860
+! 
+
+! # show bootvar
+! 
+! -------  --------------------  ----------------------------------------
+! Image    Version               Descriptions
+! -------  --------------------  ----------------------------------------
+! active  *1.6.0.4900860
+! backup   1.1.2.4767216
+! 
+! Current Active : 1.6.0.4900860
+! Next Active    : 1.6.0.4900860
+! 
+! 
+
+! # dir
+! 
+!          1  drwx                    0 Jan 01 1970 00:01:14 .
+!         32  drwx                    0 Jan 01 1970 00:00:28 ..
+!          7  -rw-                   12 Jan 01 1970 00:01:00 hpc_port_broad.cfg
+!         36  ----                    0 Jan 01 1970 00:14:59 mtd4.dsc
+!         17  -rw-                  156 Jan 01 1970 00:25:49 dh512.pem
+!          3  drwx                    0 Jan 01 1970 00:00:29 crashlogs
+!         80  drwx                    0 Jan 01 1970 00:01:04 user-apps
+!         76  -rw-                   70 Jan 01 1970 00:00:02 coredump_debug_config.md5sum
+!         18  -rw-                  245 Jan 01 1970 00:25:49 dh1024.pem
+!         14  -rw-                 1650 Jan 11 1970 21:32:29 fastpath.cfg
+!         33  -rw-                    9 Jan 01 1970 00:01:25 sshd.pid
+!          8  -rw-                 1024 Jan 01 1970 00:01:13 sslt.rnd
+!         21  -rw-                    0 Jan 01 1970 00:19:34 eula
+!          9  -rw-                   96 Jan 01 1970 00:01:19 snmpOprData.cfg
+!         43  -rw-                   64 Jan 01 1970 00:01:05 logNvmSave.bin
+!         75  -rw-                  714 Jan 01 1970 00:00:02 coredump_debug_config
+!         82  -rw-                   72 Jan 01 1970 00:01:14 coredump_regular_config.md5sum
+!          2  -rwx                   10 Jan 01 1970 00:00:24 user.start
+!         81  -rw-                  428 Jan 01 1970 00:01:14 coredump_regular_config
+!         40  -rw-                 1176 Jan 11 1970 21:32:29 startup-config
+!         10  -rw-                    6 Jan 01 1970 00:01:19 serial_speed.pending
+!         35  ----                    0 Jan 01 1970 00:14:59 mtd3.dsc
+!         31  -rw-                  517 Jan 01 1970 00:09:05 ssh_host_key
+!          4  -rw-                16328 Jan 01 1970 00:31:38 log2.bin
+!         32  -rw-                  668 Jan 01 1970 00:09:28 ssh_host_dsa_key
+!         30  -rw-                  891 Jan 01 1970 00:09:05 ssh_host_rsa_key
+!         79  -rw-                    0 Jan 01 1970 00:00:55 olog0.txt
+!         74  -rw-                    0 Jan 01 1970 00:01:05 olog1.txt
+!         69  -rw-                    0 Jan 01 1970 00:01:05 olog2.txt
+!         78  -rw-                    0 Jan 01 1970 00:00:55 slog0.txt
+!         73  -rw-                    0 Jan 01 1970 00:01:05 slog1.txt
+!         68  -rw-                    0 Jan 01 1970 00:01:05 slog2.txt
+!         77  -rw-                    5 Jan 01 1970 00:00:55 ologNdx0.txt
+! 
+! Total Size: 917504
+! Bytes Free: 696320
+! 
+
+! # show running-config
+
+!Current Configuration:
+!
+!System Description "EdgeSwitch 24-Port 250W, 1.6.0.4900860, Linux 3.6.5-f4a26ed5, 1.0.0.4857129"
+!System Software Version "1.6.0.4900860"
+!System Up Time          <removed>
+!Additional Packages     QOS,IPv6 Management,Routing
+!Current SNTP Synchronized Time: <removed>
+!
+network protocol none
+network parms 192.168.191.22 255.255.255.0 192.168.191.254
+vlan database
+vlan 189,191
+vlan name 189 "LLCCTV"
+vlan name 191 "NetworkMgmt"
+exit
+
+network mgmt_vlan 191
+ip ssh server enable
+ip ssh protocol 2
+configure
+username "ubnt" password 00e23b61baaec890466372354135994235e79dd0b4b411ed386d2f3ef6c017b859f67a3ee4e829c446a8bbbaaf1cff62602779139f54c3097d7c0a79ee92c42c level 15 encrypted
+line console
+exit
+
+line telnet
+exit
+
+line ssh
+exit
+
+snmp-server sysname "mch9-fesw1"
+snmp-server location "Atrium3"
+snmp-server contact "InfraOps"
+!
+
+interface 0/1
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/2
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/3
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/4
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/5
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/6
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/7
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/8
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/9
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/10
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/11
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/12
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/13
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/14
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/15
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/16
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/17
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/18
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/19
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/20
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/21
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/22
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/23
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/24
+vlan pvid 189
+vlan acceptframe admituntaggedonly
+vlan participation exclude 1
+vlan participation include 189
+poe opmode passive24v
+exit
+
+
+
+interface 0/25
+vlan participation include 189,191
+vlan tagging 189,191
+exit
+
+
+
+interface 0/26
+vlan participation include 189,191
+vlan tagging 189,191
+exit
+
+
+exit
+
+
